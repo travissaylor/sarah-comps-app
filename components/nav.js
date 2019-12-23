@@ -1,56 +1,46 @@
 import React from 'react'
-import Link from 'next/link'
+import Router from 'next/router'
 
-const links = [
-  { href: 'https://zeit.co/now', label: 'ZEIT' },
-  { href: 'https://github.com/zeit/next.js', label: 'GitHub' },
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-      </li>
-      {links.map(({ key, href, label }) => (
-        <li key={key}>
-          <a href={href}>{label}</a>
-        </li>
-      ))}
-    </ul>
+import { makeStyles } from '@material-ui/core/styles';
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-      }
-    `}</style>
-  </nav>
-)
+const useStyles = makeStyles({
+  root: {
+    width: '100%',
+    position: 'fixed',
+    bottom: 0,
+  },
+});
 
-export default Nav
+export default function Nav() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  return (
+    <BottomNavigation
+     style={{ width: '100%', position: 'fixed', bottom: 0 }}
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+        Router.push({
+          pathname: '/' + newValue,
+        })
+      }}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavigationAction label="Home" value="" icon={<RestoreIcon />} />
+      <BottomNavigationAction label="Notes" value="notes" icon={<FavoriteIcon />} />
+      <BottomNavigationAction label="Overwhelmed" value="overwhelmed" icon={<LocationOnIcon />} />
+    </BottomNavigation>
+  );
+}
+
+
+
+
