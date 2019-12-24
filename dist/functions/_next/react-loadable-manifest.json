@@ -1,0 +1,110 @@
+{
+  "./dev/noop": [
+    {
+      "id": "./node_modules/next/dist/client/dev/noop.js",
+      "name": "./node_modules/next/dist/client/dev/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
+    }
+  ],
+  "firebase/app": [
+    {
+      "id": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/@firebase/component/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/component/dist/index.cjs.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "name": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/firebase/app/dist/index.cjs.js",
+      "name": "./node_modules/firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/tslib/tslib.es6.js",
+      "name": "./node_modules/tslib/tslib.es6.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    },
+    {
+      "id": "./node_modules/webpack/buildin/global.js",
+      "name": "./node_modules/webpack/buildin/global.js",
+      "file": "static/chunks/2.js",
+      "publicPath": "static/chunks/2.js"
+    }
+  ],
+  "firebase/firestore": [
+    {
+      "id": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/app/dist/index.cjs.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@firebase/component/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/component/dist/index.cjs.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@firebase/firestore/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/firestore/dist/index.cjs.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "name": "./node_modules/@firebase/logger/dist/index.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "name": "./node_modules/@firebase/util/dist/index.cjs.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/@firebase/webchannel-wrapper/dist/index.esm.js",
+      "name": "./node_modules/@firebase/webchannel-wrapper/dist/index.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/firebase/firestore/dist/index.esm.js",
+      "name": "./node_modules/firebase/firestore/dist/index.esm.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/tslib/tslib.es6.js",
+      "name": "./node_modules/tslib/tslib.es6.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    },
+    {
+      "id": "./node_modules/webpack/buildin/global.js",
+      "name": "./node_modules/webpack/buildin/global.js",
+      "file": "static/chunks/1.js",
+      "publicPath": "static/chunks/1.js"
+    }
+  ]
+}
