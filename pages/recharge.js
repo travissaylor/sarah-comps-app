@@ -43,36 +43,36 @@ class Recharge extends React.Component{
         }
     }
 
-    // async componentDidMount() {
-    //     var quoteRes = null;
-    //     var quoteData = null;
-    //     var quote = null;
-    //     var escapedQuote = null;
-    //     var gif = null;
-    //     try {
-    //         quoteRes = await fetch('https://michael-scott-quotes.herokuapp.com/quote');
-    //         quoteData = await quoteRes.json();
-    //         quote = quoteData.quote;
-    //         escapedQuote = encodeURI('michael scott ' + quote);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     try {
-    //         const gifRes = await fetch('http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + escapedQuote);
-    //         const gifData = await gifRes.json();
-    //         gif = gifData.data[0].images.fixed_height_downsampled.webp
-    //     } catch(error) {
-    //         console.log(error);
-    //         const gifRes = await fetch('http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=michael%20scott');
-    //         const gifData = await gifRes.json();
-    //         gif = gifData.data[0].images.fixed_height_downsampled.webp
-    //     } finally {
-    //         this.setState({
-    //             quote: this.quote,
-    //             gif: this.gif
-    //         });
-    //     }
-    // }
+    async componentDidMount() {
+        var quoteRes = null;
+        var quoteData = null;
+        var quote = null;
+        var escapedQuote = null;
+        var gif = null;
+        try {
+            quoteRes = await fetch('https://michael-scott-quotes.herokuapp.com/quote');
+            quoteData = await quoteRes.json();
+            quote = quoteData.quote;
+            escapedQuote = encodeURI('michael scott ' + quote);
+        } catch (error) {
+            console.log(error);
+        }
+        try {
+            const gifRes = await fetch('http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=' + escapedQuote);
+            const gifData = await gifRes.json();
+            gif = gifData.data[0].images.fixed_height_downsampled.webp
+        } catch(error) {
+            console.log(error);
+            const gifRes = await fetch('http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=michael%20scott');
+            const gifData = await gifRes.json();
+            gif = gifData.data[0].images.fixed_height_downsampled.webp
+        } finally {
+            this.setState({
+                quote: this.quote,
+                gif: this.gif
+            });
+        }
+    }
 
     render() {
         return (
