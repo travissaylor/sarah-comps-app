@@ -11,7 +11,5 @@ const webpack = require('webpack');
         config.plugins.push(new webpack.DefinePlugin(env));
 
         return config;
-      },
-        target: 'serverless',
-        distDir: './dist/functions/_next'
+      }
     };
