@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Link from 'next/link'
+import ButtonAppBar from '../components/buttonAppBar'
 
 class Home extends React.Component {
   render() {
@@ -11,7 +12,7 @@ class Home extends React.Component {
           <title>Home</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
+        <ButtonAppBar title='Home'/>
         <div className="hero">
           <h1 className="title">Sarah's Surviving Comps Special Place</h1>
           <p className="description">
@@ -25,10 +26,10 @@ class Home extends React.Component {
                 <p>Read a note that was written with lots of love and your situation in mind!</p>
               </a>
             </Link>
-            <Link href="/overwhelmed">
+            <Link href="/recharge">
               <a className="card">
-                <h3>Feeling Overwhelmed &rarr;</h3>
-                <p>Take a second to cheer yourself up!</p>
+                <h3>Recharge Yourself &rarr;</h3>
+                <p>Feeling overwhelmed? Take a second to cheer yourself up!</p>
               </a>
             </Link>
             <a

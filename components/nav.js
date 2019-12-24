@@ -3,9 +3,10 @@ import Router from 'next/router'
 
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import HomeIcon from '@material-ui/icons/Home';
+import BatteryCharging60Icon from '@material-ui/icons/BatteryCharging60';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -34,9 +35,9 @@ export default function Nav() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" value="" icon={<RestoreIcon />} />
+      <BottomNavigationAction label="Home" value="" icon={<HomeIcon />} />
       <BottomNavigationAction label="Notes" value="notes" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Overwhelmed" value="overwhelmed" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Recharge" value="recharge" icon={<BatteryCharging60Icon />} />
     </BottomNavigation>
   );
 }
