@@ -1,0 +1,40 @@
+{
+  "modules": {
+    "byIdentifier": {},
+    "usedIds": {}
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/_app.js": 2,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/_error.js": 3,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/index.js": 4,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/note/[id].js": 5,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/notes.js": 6,
+      "static/JXo7QWPfX8m7K7fa0dlKq/pages/recharge.js": 7,
+      "static/runtime/main.js": 8,
+      "static/runtime/polyfills.js": 9
+    },
+    "bySource": {
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/db.js firebase/app": 0,
+      "0 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/db.js firebase/firestore": 0,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/db.js firebase/firestore": 10,
+      "1 node_modules/next/dist/build/webpack/loaders/next-babel-loader.js??ref--4!lib/db.js firebase/app": 11
+    },
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}
