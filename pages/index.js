@@ -21,13 +21,13 @@ const styles = theme => ({
     },
     textAlign: 'center',
     '& h1': {
-      fontSize: '60px',
+      fontSize: '80px',
       lineHeight: '1',
       fontWeight: '800',
       margin: 0,
     },
     '& p': {
-      fontSize: '20px',
+      fontSize: '24px',
     },
     '& div': {
       background: 'radial-gradient(rgba(0,0,0,.15), rgba(0,0,0,0), rgba(0,0,0,0))',
@@ -141,7 +141,7 @@ class Home extends React.Component {
         <Grid container spacing={0}>
           <Grid item xs={12} sm={6} className={classes.hero}>
             <div>
-              <h1 className="title">Comps Survival Guide</h1>
+              <h1 className="title">Comps Emotional Support</h1>
               <p className="description">
                 When life throws you lemons, I will emotionally support you while you make lemonade 
               </p>
