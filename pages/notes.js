@@ -5,16 +5,52 @@ import Link from 'next/link'
 import loadFirebase from '../lib/db'
 import ButtonAppBar from '../components/buttonAppBar'
 
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    hero: {
+      background: 'url(/colorful-pencils.jpg)',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      width: '100%',
+      textAlign: 'center',
+      padding: '15vh 0',
+      color: 'white',
+      '& h1': {
+          fontSize: '60px',
+          lineHeight: 1,
+      },
+      '& p': {
+        fontSize: '20px',
+        lineHeight: 1,
+    }
+    },
+    card: {
+        flexGrow: 1,
+        textAlign: 'center',
+        width: '100%',
+        '& img,h2': {
+            width: '100%',
+        },
+        '& h2': {
+
+        }
+    }
+});
+
 class Notes extends React.Component {
     static async getInitialProps() {
         const firebase = await loadFirebase();
         const db = firebase.firestore();
         var notes = [];
-        let notesRef = db.collection('notes');
+        let notesRef = db.collection('notes').orderBy("id", "asc");
         let allNotes = await notesRef.get()
         .then(snapshot => {
           snapshot.forEach(doc => {
-            notes.push({id: doc.id, title: doc.data().title, content: doc.data().content});
+            notes.push({id: doc.id, title: doc.data().title, content: doc.data().content, img: doc.data().img});
           });
         })
         .catch(err => {
@@ -23,6 +59,7 @@ class Notes extends React.Component {
 
         return {notes}
     }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -33,12 +70,12 @@ class Notes extends React.Component {
     async componentDidMount() {
         const firebase = await loadFirebase();
         const db = firebase.firestore();
-        let notesRef = db.collection('notes');
+        let notesRef = db.collection('notes').orderBy("id", "asc");
         let allNotes = notesRef.get()
         .then(snapshot => {
             var notesData = [];
           snapshot.forEach(doc => {
-            notesData.push({id: doc.id, title: doc.data().title, content: doc.data().content});
+            notesData.push({id: doc.id, title: doc.data().title, content: doc.data().content, img: doc.data().img});
           });
           this.setState({
             notes: notesData
@@ -50,60 +87,38 @@ class Notes extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
         return(
-            <div>
+            <div style={{flexGrow: 1, marginBottom: '56px'}}>
                 <Head>
                 <title>Notes</title>
                 <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <ButtonAppBar title='Notes'/>
-                <div className="Hero">
-                    <h1 className="title">Notes</h1>
-                    <div className="row">
+                <Grid container spacing={0}>
+                    <Grid className={classes.hero} item xs={12}>
+                        <h1 className="title">Notes</h1>
+                        <p>A few hand written from my heart</p>
+                    </Grid>
+                    <Grid className={classes.card} container spaceing={0}>
                     {this.state.notes.map(note => 
-                        <Link href="/note/[id]" as={"/note/" + note.id} >
-                            <a className="card">{note.title}</a>
+                        <Link href="/note/[id]" as={"/note/" + note.id} >                     
+                            <Grid className={classes.card} item xs={6} sm={4}>
+                                <img src={note.img}/>
+                                <h2>{note.title}</h2>
+                            </Grid>
                         </Link>
                     )}
-                    </div>
-                </div>
+                    </Grid>
+                </Grid>
                 <Nav />
-                <style jsx>{`
-                .hero {
-                    width: 100%;
-                    color: #333;
-                }
-                .title {
-                    margin: 0;
-                    width: 100%;
-                    padding-top: 80px;
-                    line-height: 1.15;
-                    font-size: 48px;
-                }
-                .title,
-                .description {
-                    text-align: center;
-                }
-                .row {
-                max-width: 880px;
-                margin: 80px auto 40px;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                }
-                .card {
-                padding: 18px 18px 24px;
-                width: 220px;
-                text-align: left;
-                text-decoration: none;
-                color: #434343;
-                border: 1px solid #9b9b9b;
-                }
-                
-                `}</style>
             </div>
         )
     }
 }
 
-export default Notes
+Notes.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Notes);

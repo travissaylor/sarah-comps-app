@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   hero: {
-    background: 'url(colorful-lemon.jpg)',
+    background: 'url(/colorful-lemon.jpg)',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -110,7 +110,6 @@ const styles = theme => ({
       fontSize: '20px',
     },
     '& div': {
-      padding: '0 0 50px 0',
       background: 'radial-gradient(rgba(0,0,0,.2), rgba(0,0,0,0), rgba(0,0,0,0))',
       [theme.breakpoints.up('sm')]: {
         // background: 'rgba(236, 56, 188, 0.7)',
@@ -130,7 +129,7 @@ class Home extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div style={{flexGrow: 1}}>
+      <div style={{flexGrow: 1, marginBottom: '56px'}}>
         <Head>
           <title>Home</title>
           <link rel="icon" href="/favicon.ico" />

@@ -5,11 +5,55 @@ import loadFirebase from '../../lib/db'
 import Link from 'next/link'
 import ButtonAppBar from '../../components/buttonAppBar'
 
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    hero: {
+      background: 'url(/colorful-pencils.jpg)',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      width: '100%',
+      textAlign: 'center',
+      padding: '15vh 0',
+      color: 'white',
+      marginTop: '-68px',
+      '& h1': {
+          fontSize: '60px',
+          lineHeight: 1,
+      },
+      '& p': {
+        fontSize: '20px',
+        lineHeight: 1,
+    }
+    },
+    content: {
+        flexGrow: 1,
+        textAlign: 'center',
+        '& p': {
+            fontSize: '24px',
+            textAlign: 'left',
+            margin: 'auto',
+            padding: '30px 20%',
+        }
+    },
+    backButton: {
+        textDecoration: 'none',
+        zIndex: '2',
+        margin: '20px',
+        color: 'white',
+        fontSize: '20px'
+    }
+});
+
 class Note extends React.Component {
     static async getInitialProps(context) {
         const id = context.query.id;
         var title = '';
         var content = '';
+        var img = '';
         const firebase = await loadFirebase();
         const db = firebase.firestore();
 
@@ -18,12 +62,13 @@ class Note extends React.Component {
         .then(snapshot => {
             title = snapshot.data().title;
             content = snapshot.data().content;
+            img = snapshot.data().img;
         })
         .catch(err => {
           console.log('Error getting documents', err);
         });
         
-        return {id, title, content}
+        return {id, title, content, img}
     }
 
     constructor(props) {
@@ -31,7 +76,8 @@ class Note extends React.Component {
         this.state = {
             id: this.props.id,
             title: this.props.title,
-            content: this.props.content
+            content: this.props.content,
+            img: this.props.img
         }
     }
 
@@ -44,7 +90,8 @@ class Note extends React.Component {
         .then(snapshot => {
             this.setState({
                 title: snapshot.data().title,
-                content: snapshot.data().content
+                content: snapshot.data().content,
+                img: snapshot.data().img
             })
         })
         .catch(err => {
@@ -54,6 +101,7 @@ class Note extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
         return (
             <div>
                 <Head>
@@ -61,48 +109,19 @@ class Note extends React.Component {
                 <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <ButtonAppBar title={this.state.title}/>
-                <Link href="/notes">
-                    <a>back to notes</a>
-                </Link>
-                <div className="Hero">
-                    <h1>Title: {this.state.title}</h1>
-                    <p>{this.state.content}</p>
-                </div>
+                <Grid container spacing={0}>
+                    <Link href="/notes">
+                        <a className={classes.backButton}>&#8592; back to notes</a>
+                    </Link>
+                    <Grid className={classes.hero} style={{background: 'url(' + this.state.img + ')'}} item xs={12}>
+                        <h1>{this.state.title}</h1>
+                    </Grid>
+                    <Grid className={classes.content} item xs={12}>
+                        <p>{this.state.content}</p>
+                    </Grid>
 
-                <Nav />
-                <style jsx>{`
-                .hero {
-                    width: 100%;
-                    color: #333;
-                }
-                .title {
-                    margin: 0;
-                    width: 100%;
-                    padding-top: 80px;
-                    line-height: 1.15;
-                    font-size: 48px;
-                }
-                .title,
-                .description {
-                    text-align: center;
-                }
-                .row {
-                max-width: 880px;
-                margin: 80px auto 40px;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                }
-                .card {
-                padding: 18px 18px 24px;
-                width: 220px;
-                text-align: left;
-                text-decoration: none;
-                color: #434343;
-                border: 1px solid #9b9b9b;
-                }
-                
-                `}</style>
+                    <Nav />
+                </Grid>
     
             </div>
         )
@@ -110,4 +129,8 @@ class Note extends React.Component {
 
 }
 
-export default Note
+Note.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Note);
