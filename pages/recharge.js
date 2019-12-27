@@ -9,8 +9,19 @@ class Recharge extends React.Component{
     static async getInitialProps() {
         const res = await fetch('https://www.reddit.com/r/ClashRoyale/comments/eer26e/an_option_to_organize_the_order_of_your_emotes.json')
         const json = await res.json()
+        var rand = Math.floor(Math.random() * json[0].data.children.length);
+        var index = 0;
         console.log(json);
-        const img = json[0].data.children[0].data.thumbnail;
+        while(json[0].data.children[rand].thumbnail_width === null) {
+            rand = Math.floor(Math.random() * json[0].data.children.length);
+            if(index > json[0].data.children.length - 1) {
+                console.log("Image Never Found in Query")
+                break;
+            }
+            index++;
+        }
+        const img = json[0].data.children[rand].data.url;
+
         return {img}
     }
 
@@ -24,10 +35,22 @@ class Recharge extends React.Component{
     async componentDidMount() {
         const res = await fetch('https://www.reddit.com/r/ClashRoyale/comments/eer26e/an_option_to_organize_the_order_of_your_emotes.json')
         const json = await res.json()
-        
-        const img = json[0].data.children[0].data.thumbnail;
+        var rand = Math.floor(Math.random() * json[0].data.children.length);
+        var index = 0;
+        console.log(json);
+        while(json[0].data.children[rand].thumbnail_width === null) {
+            rand = Math.floor(Math.random() * json[0].data.children.length);
+            if(index > json[0].data.children.length - 1) {
+                console.log("Image Never Found in Query")
+                break;
+            }
+            index++;
+        }
+
+        const img = json[0].data.children[rand].data.url;
+
         this.setState({
-            img: this.props.img
+            img: img
         })
     }
 
@@ -42,7 +65,9 @@ class Recharge extends React.Component{
                 <Nav />
 
                 <h1>Michael Scott Quote</h1>
-                <img src={this.state.img} />
+                <div>
+                    <img src={this.state.img} />
+                </div>
             </div>
         )
     }
