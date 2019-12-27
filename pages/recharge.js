@@ -31,13 +31,14 @@ const styles = theme => ({
     },
     quote: {
         textAlign: 'center',
-        height: '100vh',
-        width: 'auto',
+        margin: 'auto',
+        padding: '0 20%',
         '& img,h2': {
             width: '100%',
         },
         '& h2': {
-
+            fontSize: '30px',
+            color: '#006cc0'
         }
     }
 });

@@ -35,9 +35,9 @@ const styles = theme => ({
         '& img,h2': {
             width: '100%',
         },
-        '& h2': {
-
-        }
+        '&:hover': {
+            cursor: 'pointer'
+        },
     }
 });
 
