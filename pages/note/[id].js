@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
+import ReactHtmlParser from 'react-html-parser';
+
 const styles = theme => ({
     hero: {
       background: 'url(/colorful-pencils.jpg)',
@@ -36,7 +38,7 @@ const styles = theme => ({
             fontSize: '24px',
             textAlign: 'left',
             margin: 'auto',
-            padding: '30px 20%',
+            padding: '30px 10%',
         }
     },
     backButton: {
@@ -103,7 +105,7 @@ class Note extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <div>
+            <div style={{flexGrow: 1, marginBottom: '56px'}}>
                 <Head>
                 <title>Note</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -117,7 +119,7 @@ class Note extends React.Component {
                         <h1>{this.state.title}</h1>
                     </Grid>
                     <Grid className={classes.content} item xs={12}>
-                        <p>{this.state.content}</p>
+                        {ReactHtmlParser(this.state.content)}
                     </Grid>
 
                     <Nav />
