@@ -43,7 +43,7 @@ const styles = theme => ({
     }
 });
 
-class Recharge extends React.Component{
+class Recharge extends React.Component {
     static async getInitialProps() {
         const options = {credentials: 'same-origin'};
         const res = await fetch('https://api.reddit.com/r/rarepuppers/top/?t=week', options);

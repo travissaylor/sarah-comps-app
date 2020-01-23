@@ -1,0 +1,41 @@
+Sarahs Making it through Comps App
+
+Notes to make
+- When gift is given
+- The beginning
+- The first day back
+- Starting to read
+
+
+App
+    Views
+    - Home
+        - Title at top
+        - Open Next Note
+            - Note Title
+        - Feeling Overwhelmed Section
+            - Cute Dog pictures
+            - The office memes
+            - Motivational Quotes
+    - Note
+    - Cute Dog pictures
+
+
+Things to do
+- Style the pages
+    - Card Styles
+    - Responsive Page Styles
+    - Style app bar
+    - style bottom nav
+- Finish the Recharge pages
+    - Find proper api - possibly reddit
+- Domain Name settup
+    - travissaylor.com or saylordevelopment.com sub Domain
+- Write Notes
+    - Start w/ at least 5
+    - Figure out formatting
+- Animations
+    - If I can get to it
+    - Should be done last
+
+
