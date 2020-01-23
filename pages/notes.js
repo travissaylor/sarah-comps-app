@@ -68,6 +68,11 @@ class Notes extends React.Component {
     }
 
     async componentDidMount() {
+        if ('FIREBASE_PROJECT_ID' in process.env) {
+            console.log("Env var is set:", process.env.FIREBASE_PROJECT_ID)
+        } else {
+            console.log("Env var IS NOT SET")
+        }          
         const firebase = await loadFirebase();
         const db = firebase.firestore();
         let notesRef = db.collection('notes').orderBy("id", "asc");
