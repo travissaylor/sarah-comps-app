@@ -1,0 +1,14 @@
+{
+    "name": "Sarah's Comp Servival App",
+    "short_name": "Comp Servival",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "description": "An app to help Sarah survive the dreaded exams in the spring of her 3rd year of her PHD",
+    "icons": [{
+      "src": "/favicon.ico",
+      "sizes": "512x512",
+      "type": "image/ico"
+    }]
+  }
